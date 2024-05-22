@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My MP3 Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #0a0a2a; /* Updated background color to represent the galaxy */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* Updated text color */
+        }
+
+        h1 {
+            color: #ffffff; /* Updated h1 color */
+            margin-top: 20px;
+            text-align: left; /* Align h1 to the left */
+            margin-left: 20px; /* Add left margin to h1 */          
+        }
+
+        .song {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #ffffff; /* Updated border color */
+            border-radius: 10px; /* Changed to square */
+            background-color: rgba(255, 255, 255, 0.1); /* Updated background color to transparent white */
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Updated box shadow */
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block; /* To align squares horizontally */
+        }
+
+        .song:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 80%); /* Added radial gradient */
+            z-index: -1;
+            transition: transform 0.3s ease;
+            transform: translateY(-100%);
+        }
+
+        .song:hover:before {
+            transform: translateY(0);
+        }
+
+        .song:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Updated box shadow */
+        }
+
+        .song h2,
+        .song p {
+            color: #ffffff; /* Updated text color */
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .control-button {
+            background-color: #2980b9; /* Updated background color */
+            color: #ffffff; /* Updated text color */
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .control-button:hover {
+            background-color: #1E8E3E;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JOPAY'S HARMONIOUS HIDEAWAY <button class="control-button" onclick="showSongs()">Open</button></h1> 
+    
+    <div class="song" style="display: none;">
+        <h2>Yellow</h2>
+        <img src="media/yellow.jpg" alt="Song 1">
+        <div class="controls">
+            
+        </div>
+        <audio controls style="width:100%;">
+            <source src="media/Yellow.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="song" style="display: none;">
+        <h2>You'll Be Safe Here</h2>
+        <img src="media/Safe.jpg" alt="Song 2">
+        <div class="controls">
+           
+        </div>
+        <audio controls style="width:100%;">
+            <source src="media/Youll Be Safe Here.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="song" style="display: none;">
+        <h2>Always Be My Baby</h2>
+        <img src="media/always.jpg" alt="Song 3">
+        <div class="controls">
+            
+        </div>
+        <audio controls style="width:100%;">
+            <source src="media/David Cook.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+   <div class="song" style="display: none;">
+    <h2>I'll Be</h2>
+    <img src="media/Edwin.jpg" alt="Song 4">
+    <div class="controls">
+       
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/edwin.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="song" style="display: none;">
+    <h2>Iris</h2>
+    <img src="media/Iris.jpg" alt="Song 5">
+    <div class="controls">
+        
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/iris.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="song" style="display: none;">
+    <h2>I Won't Give Up</h2>
+    <img src="media/jasonmraz.jpg" alt="Song 6">
+    <div class="controls">
+        
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/jasonmraz.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="song" style="display: none;">
+    <h2>LANY Nonstop</h2>
+    <img src="media/lany.jpg" alt="Song 7">
+    <div class="controls">
+        
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/lany.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="song" style="display: none;">
+    <h2>Perfect</h2>
+    <img src="media/perfect.jpg" alt="Song 8">
+    <div class="controls">
+        
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/perfect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="song" style="display: none;">
+    <h2>Photograph</h2>
+    <img src="media/photograph.jpg" alt="Song 9">
+    <div class="controls">
+        
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/Photograph.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<div class="song" style="display: none;">
+    <h2>You're On Your Own, Kid</h2>
+    <img src="media/taylor.jpg" alt="Song 10">
+    <div class="controls">
+        
+    </div>
+    <audio controls style="width:100%;">
+        <source src="media/taylor.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+    <script>
+        function showSongs() {
+            var songs = document.querySelectorAll('.song');
+            songs.forEach(song => {
+                song.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+
+</html>
