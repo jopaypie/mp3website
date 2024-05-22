@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-image: url('media/back.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+            border: 1px solid #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            width: 150px;
+            text-align: center;
+        }
+        nav a.active {
+            background-color: #333;
+            color: #fff;
+        }
+        .content {
+            padding: 20px;
+            margin-bottom: 60px; /* Adjusted margin for the footer */
+        }
+        .anime-list, .anime-section {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .anime-list a {
+            display: block;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+        .anime-list a.active {
+            font-weight: bold;
+        }
+        .anime-section video {
+            max-width: 100%;
+            height: auto;
+        }
+        .anime-section h2 {
+            color: #009688; /* Teal color */
+            font-weight: normal;
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .anime-section p {
+            color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            height: 40px; /* Adjusted height for the footer */
+        }
+    </style>
+    <script>
+        function showAnimeList(genreId, element) {
+            // Hide all anime lists
+            var animeLists = document.getElementsByClassName('anime-list');
+            for (var i = 0; i < animeLists.length; i++) {
+                animeLists[i].style.display = 'none';
+            }
+            // Show the selected anime list
+            document.getElementById(genreId + '-list').style.display = 'block';
+
+            // Remove 'active' class from all genre links
+            var genreLinks = document.querySelectorAll('nav a');
+            genreLinks.forEach(function (link) {
+                link.classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked genre link
+            element.classList.add('active');
+        }
+
+        function showSection(animeId, element) {
+            // Hide all sections
+            var sections = document.getElementsByClassName('anime-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            // Show the selected section
+            document.getElementById(animeId).style.display = 'block';
+
+            // Remove 'active' class from all anime links
+            var animeLinks = document.querySelectorAll('.anime-list a');
+            animeLinks.forEach(function (link) {
+                link.classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked anime link
+            element.classList.add('active');
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Anime Odyssey: Unleash Your Imagination in Animated World</h1>
+</header>
+
+<nav class="genre">
+    <a onclick="showAnimeList('action', this)">Action</a>
+    <a onclick="showAnimeList('adventure', this)">Adventure</a>
+    <a onclick="showAnimeList('drama', this)">Drama</a>
+    <a onclick="showAnimeList('romance', this)">Romance</a>
+    <a onclick="showAnimeList('sports', this)">Sports</a>
+</nav>
+
+<div class="content">
+    <div id="action-list" class="anime-list">
+        <a onclick="showSection('jujutsukaisen', this)">Jujutsu Kaisen</a>
+        <a onclick="showSection('blackclover', this)">Black Clover</a>
+        <a onclick="showSection('kimetsunoyaiba', this)">Kimetsu no Yaiba</a>
+        <a onclick="showSection('bungoustraydogs', this)">Bungou Stray Dogs</a>
+        <a onclick="showSection('tokyoghoul', this)">Tokyo Ghoul</a>
+        <a onclick="showSection('attackontitan', this)">Attack on Titan</a>
+        <a onclick="showSection('naruto', this)">Naruto</a>
+    </div>
+
+    <div id="adventure-list" class="anime-list">
+        <a onclick="showSection('onepiece', this)">One Piece</a>
+    </div>
+
+    <div id="drama-list" class="anime-list">
+        <a onclick="showSection('assassinationclassroom', this)">Assassination Classroom</a>
+        <a onclick="showSection('kakegurui', this)">Kakegurui</a>
+    </div>
+
+    <div id="romance-list" class="anime-list">
+        <a onclick="showSection('horimiya', this)">Horimiya</a>
+        <a onclick="showSection('kaguyasamaloveiswar', this)">Kaguya-sama: Love is War</a>
+        <a onclick="showSection('spyxfamily', this)">Spy x Family</a>
+    </div>
+
+    <div id="sports-list" class="anime-list">
+        <a onclick="showSection('haikyuu', this)">Haikyuu</a>
+        <a onclick="showSection('bluelock', this)">Blue Lock</a>
+    </div>
+
+    <!-- Anime sections -->
+    <section id="jujutsukaisen" class="anime-section">
+        <h2>Jujutsu Kaisen</h2>
+        <video controls poster="media/jujutsu.jpg">
+            <source src="media/jujutsu.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Jujutsu Kaisen follows the story of Yuji Itadori, who joins a secret organization of Jujutsu Sorcerers to eliminate a powerful curse known as Ryomen Sukuna.</p>
+    </section>
+
+    <section id="blackclover" class="anime-section">
+        <h2>Black Clover</h2>
+        <video controls poster="media/black.jpg">
+            <source src="media/black.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Black Clover follows Asta, a boy born without magic in a world where magic is everything, who aims to become the Wizard King.</p>
+    </section>
+
+    <section id="kimetsunoyaiba" class="anime-section">
+        <h2>Kimetsu no Yaiba</h2>
+        <video controls poster="media/kimetsu.jpg">
+            <source src="media/kimetsu.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Kimetsu no Yaiba follows Tanjiro Kamado, a young boy who becomes a demon slayer to avenge his family and cure his sister, Nezuko, who was turned into a demon.</p>
+    </section>
+
+    <section id="bungoustraydogs" class="anime-section">
+        <h2>Bungou Stray Dogs</h2>
+        <video controls poster="media/stray.jpg">
+            <source src="media/stray.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Bungou Stray Dogs follows a group of detectives with supernatural powers who solve cases involving other individuals with extraordinary abilities.</p>
+    </section>
+
+    <section id="tokyoghoul" class="anime-section">
+        <h2>Tokyo Ghoul</h2>
+        <video controls poster="media/tokyo.jpg">
+            <source src="media/tokyo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Tokyo Ghoul is about Ken Kaneki, a college student who becomes a half-ghoul after an encounter with one. He must navigate his new life while hiding his identity from both humans and ghouls.</p>
+    </section>
+
+    <section     id="onepiece" class="anime-section">
+        <h2>One Piece</h2>
+        <video controls poster="media/op.jpg">
+            <source src="media/OP.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>One Piece is a Japanese manga series written and illustrated by Eiichiro Oda. The story follows the adventures of Monkey D. Luffy and his pirate crew as they search for the ultimate treasure known as the "One Piece" in order to become the next Pirate King.</p>
+    </section>
+
+    <section id="attackontitan" class="anime-section">
+        <h2>Attack on Titan</h2>
+        <video controls poster="media/aot.jpg">
+            <source src="media/AOT.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Attack on Titan is a Japanese manga series written and illustrated by Hajime Isayama. The story is set in a world where humanity lives inside enormous walled cities to protect themselves from the Titans, gigantic humanoid creatures who devour humans seemingly without reason.</p>
+    </section>
+
+    <section id="naruto" class="anime-section">
+        <h2>Naruto</h2>
+        <video controls poster="media/naruto.jpg">
+            <source src="media/naruto.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.</p>
+    </section>
+
+    <section id="assassinationclassroom" class="anime-section">
+        <h2>Assassination Classroom</h2>
+        <video controls poster="media/assassination.jpg">
+            <source src="media/assassination.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Assassination Classroom follows a class of misfits who are trying to kill their new teacher, an alien octopus with bizarre powers and super strength. The teacher has just destroyed the moon and plans to destroy the Earth unless his students can destroy him first.</p>
+    </section>
+
+    <section id="kakegurui" class="anime-section">
+        <h2>Kakegurui</h2>
+        <video controls poster="media/kake.jpg">
+            <source src="media/kake.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Kakegurui is set at Hyakkaou Private Academy, where the student hierarchy is determined by gambling. Yumeko Jabami, a new student, turns the hierarchy on its head with her compulsive gambling style.</p>
+    </section>
+
+    <section id="horimiya" class="anime-section">
+        <h2>Horimiya</h2>
+        <video controls poster="media/horimiya.jpg">
+            <source src="media/horimiya.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Horimiya follows the relationship between Kyoko Hori, a bright and popular high school girl, and Izumi Miyamura, a quiet and gloomy boy with a hidden side.</p>
+    </section>
+
+    <section id="kaguyasamaloveiswar" class="anime-section">
+        <h2>Kaguya-sama: Love is War</h2>
+        <video controls poster="media/kaguya.jpg">
+            <source src="media/kaguya.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Kaguya-sama: Love is War follows Kaguya Shinomiya and Miyuki Shirogane, two high school geniuses who are too proud to confess their love and scheme to make the other one confess first.</p>
+    </section>
+
+    <section id="spyxfamily" class="anime-section">
+        <h2>Spy x Family</h2>
+        <video controls poster="media/spy.jpg">
+            <source src="media/spy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Spy x Family follows a master spy codenamed "Twilight" who is tasked with building a family to execute a mission, not knowing that the girl he adopts as his daughter is a telepath, and the woman he agrees to marry is a skilled assassin.</p>
+    </section>
+
+    <section id="haikyuu" class="anime-section">
+        <h2>Haikyuu</h2>
+        <video controls poster="media/haikyu.jpg">
+            <source src="media/haikyu.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Haikyuu!! is a Japanese manga series written and illustrated by Haruichi Furudate. It follows the story of Shoyo Hinata, a volleyball enthusiast who dreams of becoming the best volleyball player despite his short height.</p>
+    </section>
+
+    <section id="bluelock" class="anime-section">
+        <h2>Blue Lock</h2>
+        <video controls poster="media/blue.jpg">
+            <source src="media/blue.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Blue Lock is about a soccer training regimen designed to create the world’s greatest egotist striker. The story follows Yoichi Isagi and his struggle to emerge as the number one striker.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>Anime World &copy; 2024</p>
+</footer>
+
+</body>
+</html>
+
+    
